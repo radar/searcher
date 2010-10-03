@@ -7,7 +7,7 @@ ActiveRecord::Schema.define do
   end
 
   create_table :tags_tickets, :force => true, :id => false do |t|
-    t.integer :post_id, :tag_id
+    t.integer :ticket_id, :tag_id
   end
 
   create_table :tags, :force => true do |t|
