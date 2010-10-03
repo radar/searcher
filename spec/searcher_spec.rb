@@ -7,15 +7,23 @@ describe Searcher do
   context "default field" do
     subject { Ticket.search("Hello") }
   
-    it "first result" do
+    it "finds a ticket" do
       first_result.description.should eql("Hello world! You are awesome.")
     end
   end
   
-  context "label search" do  
+  context "habtm label search" do  
     subject { Ticket.search("tag:bug") }
-    it "has_and_belongs_to_many" do
+    it "finds a ticket" do
       first_result.description.should eql("Hello world! You are awesome.")
     end
   end
+  
+  context "belongs_to label search" do
+    subject { Ticket.search("state:Open") }
+    it "finds a ticket" do
+      first_result.description.should eql("Hello world! You are awesome.")
+    end
+  end
+  
 end

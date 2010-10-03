@@ -3,6 +3,7 @@ ActiveRecord::Schema.define do
 
   create_table :tickets, :force => true do |t|
     t.string :description
+    t.integer :state_id
     t.timestamps
   end
 
@@ -14,7 +15,7 @@ ActiveRecord::Schema.define do
     t.string :name
   end
 
-  create_table :state, :force => true do |t|
+  create_table :states, :force => true do |t|
     t.string :name
   end
 

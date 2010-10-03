@@ -1,10 +1,11 @@
 class Ticket < ActiveRecord::Base
   has_and_belongs_to_many :tags
-  belongs_to :tag
+  belongs_to :state
   
   search_config do
     default :description
     external :tag, :from => :tags, :field => "name"
+    external :state, :from => :state, :field => "name"
   end
 end
 
@@ -16,10 +17,13 @@ class State < ActiveRecord::Base
   has_many :tickets
 end
 
+#############
+### SEEDS ###
+#############
 
-## seed data:
-
-# Ticket with a description, no tag
+# Ticket with a description, tag and state.
 ticket = Ticket.create(:description => "Hello world! You are awesome.")
 ticket.tags << Tag.create(:name => "bug")
+ticket.state = State.create(:name => "Open")
+ticket.save!
 
