@@ -22,8 +22,8 @@ To define labels for your field, use the `searcher` method inside your model lik
       has_and_belongs_to_many :tags
       
       searcher do
-        external :tag, :from => :tags, :field => "name"
-        external :state, :from => :state, :field => "name"
+        label :tag, :from => :tags, :field => "name"
+        label :state, :from => :state, :field => "name"
       end
     end
     

@@ -9,9 +9,9 @@ module Searcher
       @config
     end
     
-    def external(field, options)
-      @config[:externals] ||= {}
-      @config[:externals][field.to_sym] = options
+    def label(field, options)
+      @config[:labels] ||= {}
+      @config[:labels][field.to_sym] = options
       @config
     end
   end

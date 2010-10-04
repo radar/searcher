@@ -3,8 +3,8 @@ class Ticket < ActiveRecord::Base
   belongs_to :state
   
   searcher do
-    external :tag, :from => :tags, :field => "name"
-    external :state, :from => :state, :field => "name"
+    label :tag, :from => :tags, :field => "name"
+    label :state, :from => :state, :field => "name"
   end
 end
 
