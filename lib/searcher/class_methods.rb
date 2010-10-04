@@ -13,7 +13,6 @@ module Searcher
       result = query.split(" ").inject(klass) do |k, piece|
         if piece.include?(":")
           name, q = piece.split(":")
-          
           external = @config[:externals][name.to_sym]
           next unless external
           send("by_#{name}", q, external[:field])
