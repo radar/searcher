@@ -16,8 +16,6 @@ module Searcher
           external = @config[:externals][name.to_sym]
           next unless external
           send("by_#{name}", q, external[:field])
-        else
-          k.where(klass.arel_table[@config[:default]].matches_any("%#{piece}%"))
         end
       end
       

@@ -3,7 +3,6 @@ class Ticket < ActiveRecord::Base
   belongs_to :state
   
   searcher do
-    default :description
     external :tag, :from => :tags, :field => "name"
     external :state, :from => :state, :field => "name"
   end

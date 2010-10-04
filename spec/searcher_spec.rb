@@ -4,14 +4,6 @@ describe Searcher do
   let(:search_results) { subject }
   let(:first_result) { subject.first }
   
-  context "default field" do
-    subject { Ticket.search("Hello") }
-  
-    it "finds a ticket" do
-      first_result.description.should eql("Hello world! You are awesome.")
-    end
-  end
-  
   context "habtm label search" do  
     subject { Ticket.search("tag:bug") }
     it "finds a ticket" do
