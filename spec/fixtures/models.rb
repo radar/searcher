@@ -2,7 +2,7 @@ class Ticket < ActiveRecord::Base
   has_and_belongs_to_many :tags
   belongs_to :state
   
-  search_config do
+  searcher do
     default :description
     external :tag, :from => :tags, :field => "name"
     external :state, :from => :state, :field => "name"

@@ -2,7 +2,7 @@ require 'searcher/config'
 
 module Searcher
   module ClassMethods
-    def search_config(&block)
+    def searcher(&block)
       @config ||= Searcher::Config.new.instance_exec(&block)
     end
     
