@@ -14,3 +14,6 @@ load here + '/fixtures/schema.rb'
 
 # Load the models
 require here + '/fixtures/models'
+
+# Call the after_initialize hook defined in lib/searcher.rb
+ActiveSupport.run_load_hooks(:after_initialize)
