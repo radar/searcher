@@ -18,4 +18,10 @@ describe Searcher do
     end
   end
   
+  context "undefined label search" do
+    subject { Ticket.search("undefined:true") }
+    it "returns all the records" do
+      search_results.should eql(Ticket.all)
+    end
+  end
 end

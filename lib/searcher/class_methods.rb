@@ -19,7 +19,7 @@ module Searcher
         end
       end
       
-      result
+      result || klass.all
     end
   end
 end
