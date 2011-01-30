@@ -11,6 +11,7 @@ end
 ActiveRecord::Base.extend(Searcher::ClassMethods)
 
 ActiveSupport.on_load(:after_initialize) do
+  Dir[Rails.root + "app/models/**/*.rb"].each { |f| require f } if Rails.env.development?
   Searcher.classes.each do |klass|
     table = klass.arel_table
     klass.searcher[:labels].each do |name, config|
