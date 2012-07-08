@@ -5,8 +5,8 @@ Gem::Specification.new do |s|
   s.name        = "searcher"
   s.version     = Searcher::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = []
-  s.email       = []
+  s.authors     = ["Ryan Bigg"]
+  s.email       = ["radarlistener@gmail.com"]
   s.homepage    = "http://rubygems.org/gems/searcher"
   s.summary     = "Label-based straight-SQL searcher"
   s.description = "Label-based straight-SQL searcher"
