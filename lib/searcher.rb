@@ -2,9 +2,12 @@ require 'active_record'
 require 'searcher/class_methods'
 
 module Searcher
-  mattr_accessor :classes
+  def self.classes=(klass_list)
+    @@classes = klass_list
+  end
+
   def self.classes
-    @classes ||= []
+    @@classes ||= []
   end
 end
 
