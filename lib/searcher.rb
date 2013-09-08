@@ -2,8 +2,6 @@ require 'active_record'
 require 'searcher/class_methods'
 
 module Searcher
-  extend ActiveSupport::AutoLoad
-  
   def self.classes=(klass_list)
     @@classes = klass_list
   end
