@@ -4,7 +4,7 @@ ActiveRecord::Schema.define do
   create_table :tickets, :force => true do |t|
     t.string :description
     t.integer :state_id
-    t.timestamps
+    t.timestamps null: false
   end
 
   create_table :tags_tickets, :force => true, :id => false do |t|

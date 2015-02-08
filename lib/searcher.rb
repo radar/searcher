@@ -14,7 +14,6 @@ end
 ActiveRecord::Base.extend(Searcher::ClassMethods)
 
 ActiveSupport.on_load(:after_initialize) do
-  Dir["/home/richard/projects/searcher-spec/" + "app/models/**/*.rb"].each { |f| require f }
   Searcher.classes.each do |klass|
     table = klass.arel_table
     klass.searcher[:labels].each do |name, config|
