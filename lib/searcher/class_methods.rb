@@ -4,7 +4,16 @@ module Searcher
   module ClassMethods
     def searcher(&block)
       Searcher.classes << self unless Searcher.classes.include?(self)
-      @config ||= Searcher::Config.new.instance_exec(&block)
+      @config = Searcher::Config.new.instance_exec(&block)
+      table = arel_table
+      @config[:labels].each do |name, config|
+        association = reflect_on_association(config[:from])
+        association_table = association.klass.arel_table
+        if [:has_and_belongs_to_many, :belongs_to].include?(association.macro)
+          scope = lambda { |q, field| joins(config[:from]).where(association_table[field].eq(q)) }
+          self.scope "by_#{name}", scope
+        end
+      end
     end
     
     def search(query)

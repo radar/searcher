@@ -1,3 +1,11 @@
+class Tag < ActiveRecord::Base
+  has_and_belongs_to_many :tickets
+end
+
+class State < ActiveRecord::Base
+  has_many :tickets
+end
+
 class Ticket < ActiveRecord::Base
   has_and_belongs_to_many :tags
   belongs_to :state
@@ -6,14 +14,6 @@ class Ticket < ActiveRecord::Base
     label :tag, :from => :tags, :field => "name"
     label :state, :from => :state, :field => "name"
   end
-end
-
-class Tag < ActiveRecord::Base
-  has_and_belongs_to_many :tickets
-end
-
-class State < ActiveRecord::Base
-  has_many :tickets
 end
 
 #############
