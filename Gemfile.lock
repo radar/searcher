@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    searcher (0.0.7)
+    searcher (6.0.0)
       activerecord (~> 6.0)
 
 GEM

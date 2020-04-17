@@ -9,7 +9,7 @@ end
 class Ticket < ActiveRecord::Base
   has_and_belongs_to_many :tags
   belongs_to :state
-  
+
   searcher do
     label :tag, :from => :tags, :field => "name"
     label :state, :from => :state, :field => "name"
@@ -23,6 +23,6 @@ end
 # Ticket with a description, tag and state.
 ticket = Ticket.create(:description => "Hello world! You are awesome.")
 ticket.tags << Tag.create(:name => "bug")
+ticket.tags << Tag.create(:name => "visual regression")
 ticket.state = State.create(:name => "Open")
 ticket.save!
-

@@ -1,4 +1,5 @@
 require 'searcher/config'
+require 'shellwords'
 
 module Searcher
   module ClassMethods
@@ -22,7 +23,7 @@ module Searcher
     def search(query)
       klass = self
 
-      result = query.split(' ').inject(klass) do |kls, piece|
+      result = Shellwords.split(query).inject(klass) do |kls, piece|
         next kls unless piece.include?(':')
 
         name, q = piece.split(':')

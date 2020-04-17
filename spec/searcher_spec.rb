@@ -5,10 +5,20 @@ describe Searcher do
   let(:first_result) { subject.first }
 
   context "habtm label search" do
-    subject { Ticket.search("tag:bug") }
-    it "finds a ticket" do
-      expect(first_result.description).to eq("Hello world! You are awesome.")
+    context "one word value" do
+      subject { Ticket.search("tag:bug") }
+      it "finds a ticket" do
+        expect(first_result.description).to eq("Hello world! You are awesome.")
+      end
     end
+
+    context "multiple word value" do
+      subject { Ticket.search(%q{tag:"visual regression"}) }
+      it "finds a ticket" do
+        expect(first_result.description).to eq("Hello world! You are awesome.")
+      end
+    end
+
   end
 
   context "belongs_to label search" do
